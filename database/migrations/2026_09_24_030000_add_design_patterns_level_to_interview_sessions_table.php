@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('interview_sessions', function (Blueprint $table) {
+            $table->enum('level', [
+                'beginner',
+                'intermediate',
+                'senior',
+                'coding',
+                'debugging',
+                'system_design',
+                'explain',
+                'laravel',
+                'sql',
+                'design_patterns',
+            ])->default('beginner')->change();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('interview_sessions', function (Blueprint $table) {
+            $table->enum('level', [
+                'beginner',
+                'intermediate',
+                'senior',
+                'coding',
+                'debugging',
+                'system_design',
+                'explain',
+                'laravel',
+                'sql',
+            ])->default('beginner')->change();
+        });
+    }
+};
